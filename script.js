@@ -460,3 +460,10 @@ function createRandomStars(count) {
 }
 createRandomStars(20);
   
+window.addEventListener('load', () => {
+  const backgroundMusic = new Audio('./prekrasnaya-nejnaya-melodiya-zolotoy-skripki-2404.mp3'); // Укажите путь к вашему файлу
+  backgroundMusic.loop = true;
+  backgroundMusic.play().catch(error => {
+    console.warn('Автозапуск музыки заблокирован браузером. Пользователь должен взаимодействовать со страницей.', error);
+  });
+});
