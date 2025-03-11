@@ -1,0 +1,55 @@
+@media (max-width: 1023px) {
+    .hero-dish {
+        width: 400px;
+    }
+    .hero-simple {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+    .nav-links {
+        display: none;
+    }
+    .burger {
+        display: flex;
+    }
+    .nav-links.mobile {
+        display: flex;
+    }
+    .hero {
+        flex-direction: column;
+    }
+    .hero-dish {
+        width: 300px;
+        margin-top: 20px;
+    }
+    .hero-simple {
+        font-size: 0.6rem;
+    }
+    .card {
+        width: 180px;
+    }
+    .star {
+        width: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-dish {
+      width: 100px;
+    }
+    .hero-simple {
+      font-size: 0.3rem;
+    }
+    .card {
+      width: 150px;
+    }
+
+    .star {
+        width: 35px;
+    }
+}
