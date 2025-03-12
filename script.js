@@ -11,7 +11,7 @@ const dishes = [
   { name: 'Креветка с бри', price: 1220, img: 'img/menu-img/11zon_cropped (9).png' },
   { name: 'Салат с лобстером', price: 1240, img: 'img/menu-img/11zon_cropped (11).png' },
   { name: 'Шоколадный милфей', price: 1050, img: 'img/menu-img/11zon_cropped (12).png' },
-  { name: 'Панакота', price: 1000, img: 'img/menu-img/11zon_cropped (13).png' }
+  { name: 'Панакота', price: 1000, img: 'img/menu-img/11zon_cropped (13).png' },
 ];
 
 // СОЗДАНИЕ HEADER, HERO, МОДАЛЬНОГО ОКНА КОРЗИНЫ
@@ -328,6 +328,35 @@ function renderCart() {
 
   cartTotalEl.textContent = 'Итоговая сумма: ' + total + ' руб.';
 }
+
+// Функция для создания кнопок навигации карусели
+function createCarouselNavButtons() {
+  // Создаем левую кнопку
+  const leftBtn = document.createElement('button');
+  leftBtn.className = 'carousel-btn left';
+  leftBtn.innerHTML = '&#10094;'; // Unicode-символ для стрелки влево
+
+  // Создаем правую кнопку
+  const rightBtn = document.createElement('button');
+  rightBtn.className = 'carousel-btn right';
+  rightBtn.innerHTML = '&#10095;'; // Unicode-символ для стрелки вправо
+
+  // Добавляем кнопки в контейнер карусели
+  const carouselContainer = document.getElementById('carousel-container');
+  carouselContainer.appendChild(leftBtn);
+  carouselContainer.appendChild(rightBtn);
+
+  // Обработчики клика: прокрутка контейнера на ширину одной карточки (250px — можно настроить)
+  leftBtn.addEventListener('click', () => {
+    carouselContainer.scrollLeft -= 250;
+  });
+  rightBtn.addEventListener('click', () => {
+    carouselContainer.scrollLeft += 250;
+  });
+}
+
+createCarouselNavButtons();
+
 
 // КНОПКИ "ЗАКАЗАТЬ" И "ОЧИСТИТЬ КОРЗИНУ"
 checkoutBtn.addEventListener('click', () => {

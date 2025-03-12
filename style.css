@@ -322,6 +322,34 @@ header {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* КНОПКИ ДЛЯ ПЕРЕЛИСТЫВАНИЯ КАРУСЕЛИ */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(247, 221, 173, 0.1);
+    border: none;
+    color: beige;
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(248, 216, 157, 0.945);
+  }
+  .carousel-btn.left {
+    left: 10px;
+  }
+  .carousel-btn.right {
+    right: 10px;
+  }
+  .carousel-btn:hover {
+    background-color: rgba(247, 221, 173, 0.6);
+
+  }
+  
   
 .carousel-track {
     display: inline-flex;
