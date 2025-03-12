@@ -1,5 +1,20 @@
-//  HEADER 
+// МАССИВ БЛЮД
+const dishes = [
+  { name: 'Салат из томатов', price: 700, img: 'img/menu-img/11zon_cropped (5).png' },
+  { name: 'Каре из ягнятины', price: 1000, img: 'img/menu-img/11zon_cropped (2).png' },
+  { name: 'Королевский микс', price: 1300, img: 'img/menu-img/11zon_cropped (1).png' },
+  { name: 'Морской гребешок', price: 1000, img: 'img/menu-img/11zon_cropped (4).png' },
+  { name: 'Стейк из тунца', price: 1400, img: 'img/menu-img/11zon_cropped (3).png' },
+  { name: 'Малиновый тарт', price: 1000, img: 'img/menu-img/11zon_cropped (6).png' },
+  { name: 'Стейк из лосося', price: 1300, img: 'img/menu-img/11zon_cropped (7).png' },
+  { name: 'Утиная грудка', price: 1500, img: 'img/menu-img/11zon_cropped (8).png' },
+  { name: 'Креветка с бри', price: 1220, img: 'img/menu-img/11zon_cropped (9).png' },
+  { name: 'Салат с лобстером', price: 1240, img: 'img/menu-img/11zon_cropped (11).png' },
+  { name: 'Шоколадный милфей', price: 1050, img: 'img/menu-img/11zon_cropped (12).png' },
+  { name: 'Панакота', price: 1000, img: 'img/menu-img/11zon_cropped (13).png' }
+];
 
+// СОЗДАНИЕ HEADER, HERO, МОДАЛЬНОГО ОКНА КОРЗИНЫ
 function createHeader() {
   const header = document.createElement('header');
   header.className = 'header';
@@ -7,32 +22,30 @@ function createHeader() {
   const navbar = document.createElement('nav');
   navbar.className = 'navbar';
 
+  // Логотип
   const logo = document.createElement('div');
   logo.className = 'logo';
   logo.textContent = 'Continental Palate';
 
+  // Навигационные ссылки
   const navLinks = document.createElement('ul');
   navLinks.className = 'nav-links';
-  // массив для пунктов меню
   const links = [
     { text: 'На главную', href: '#', active: false },
     { text: 'О нас', href: '#', active: false },
     { text: 'Меню', href: '#', active: true }
   ];
-
   links.forEach(link => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.href = link.href;
     a.textContent = link.text;
-    if (link.active) {
-      a.classList.add('active');
-    }
+    if (link.active) a.classList.add('active');
     li.appendChild(a);
     navLinks.appendChild(li);
   });
 
-  // корзина
+  // Корзина
   const cart = document.createElement('div');
   cart.className = 'cart';
   cart.id = 'cart';
@@ -46,49 +59,61 @@ function createHeader() {
   cart.appendChild(cartIcon);
   cart.appendChild(cartCount);
 
-  // бургер-меню (для маленьких экранов)
+  // Бургер-меню
   const burger = document.createElement('div');
   burger.className = 'burger';
-  // полоски бургер-меню
   for (let i = 0; i < 3; i++) {
     const line = document.createElement('div');
     burger.appendChild(line);
   }
-
-  // обработчик клика на бургер
   burger.addEventListener('click', () => {
     burger.classList.toggle('open');
     navLinks.classList.toggle('mobile');
   });
 
-  // собираем всё в navbar
   navbar.appendChild(logo);
   navbar.appendChild(navLinks);
   navbar.appendChild(burger);
   navbar.appendChild(cart);
-
-  // добавляем navbar в header
   header.appendChild(navbar);
 
-  // вставляем header в контейнер (header-container) на странице
   document.getElementById('header-container').appendChild(header);
 }
 
+function createHero() {
+  const hero = document.createElement('section');
+  hero.className = 'hero';
+  hero.id = 'hero';
 
-//  МОДАЛЬНОЕ ОКНО  //
+  const heroSimple = document.createElement('div');
+  heroSimple.className = 'hero-simple';
+  heroSimple.innerHTML = `
+    <p>Каждое наше блюдо — результат тщательной работы и любви к кулинарии.</p>
+    <p>Мы используем только свежайшие ингредиенты, причём многие из них поставляются местными производителями.</p>
+    <p>Это позволяет нам поддерживать концепцию устойчивого развития и заботиться о здоровье наших гостей.</p>
+  `;
+
+  const heroDish = document.createElement('img');
+  heroDish.className = 'hero-dish';
+  heroDish.id = 'hero-img';
+  heroDish.src = 'img/menu-img/11zon_cropped (5).png';
+  heroDish.alt = 'Big Dish';
+
+  hero.appendChild(heroSimple);
+  hero.appendChild(heroDish);
+
+  document.getElementById('hero-container').appendChild(hero);
+}
 
 function createCartOverlay() {
-  // создаём div.cart-overlay
   const overlay = document.createElement('div');
   overlay.className = 'cart-overlay hidden';
   overlay.id = 'cart-overlay';
 
-  // внутри overlay создаём div.cart-content
   const content = document.createElement('div');
   content.className = 'cart-content';
   content.id = 'cart-content';
 
-  // шапка модального окна (заголовок и "x")
   const modalHeader = document.createElement('div');
   modalHeader.className = 'modal-window_header';
 
@@ -103,7 +128,6 @@ function createCartOverlay() {
   modalHeader.appendChild(h2);
   modalHeader.appendChild(closeBtn);
 
-  // таблица с блюдами и ценами в модальном окне
   const table = document.createElement('table');
   table.className = 'cart-table';
   table.id = 'cart-table';
@@ -122,13 +146,11 @@ function createCartOverlay() {
   tbody.id = 'cart-table-body';
   table.appendChild(tbody);
 
-  // итоговая сумма
   const cartTotal = document.createElement('div');
   cartTotal.className = 'cart-total';
   cartTotal.id = 'cart-total';
   cartTotal.textContent = 'Итоговая сумма: 0 руб.';
 
-  // кнопки «Заказать» и «Очистить корзину»
   const buttonsRow = document.createElement('div');
   buttonsRow.className = 'buttons-row';
 
@@ -145,7 +167,6 @@ function createCartOverlay() {
   buttonsRow.appendChild(checkoutBtn);
   buttonsRow.appendChild(clearCartBtn);
 
-  // собираем всё в content
   content.appendChild(modalHeader);
   content.appendChild(table);
   content.appendChild(cartTotal);
@@ -156,49 +177,28 @@ function createCartOverlay() {
   document.body.appendChild(overlay);
 }
 
-
-// HERO-СЕКЦИЯ С ТЕКСТОМ И БОЛЬШИМ БЛЮДОМ 
-
-function createHero() {
-  const hero = document.createElement('section');
-  hero.className = 'hero';
-  hero.id = 'hero';
-
-// добавляем текстовый блок HERO
-  const heroSimple = document.createElement('div');
-  heroSimple.className = 'hero-simple';
-  heroSimple.innerHTML = `
-    <p>Каждое наше блюдо — результат тщательной работы и любви к кулинарии.
-       Мы используем только свежайшие ингредиенты, причём многие из них поставляются
-       местными производителями.</p>
-    <p>Это позволяет нам поддерживать концепцию устойчивого развития
-       и заботиться о здоровье наших гостей.</p>
-  `;
-
-// добавляем большое блюдо HERO
-  const heroDish = document.createElement('img');
-  heroDish.className = 'hero-dish';
-  heroDish.id = 'hero-img';
-  heroDish.src = 'img/menu-img/11zon_cropped (5).png';
-  heroDish.alt = 'Big Dish';
-
-  hero.appendChild(heroSimple);
-  hero.appendChild(heroDish);
-
-  document.getElementById('hero-container').appendChild(hero);
-}
-
+// ИНИЦИАЛИЗАЦИЯ ЭЛЕМЕНТОВ
 createHeader();
 createHero();
 createCartOverlay();
 
+// ССЫЛКИ НА ДИНАМИЧЕСКИЕ ЭЛЕМЕНТЫ
+const carouselTrack = document.getElementById('carousel-track');
+const carouselContainer = document.getElementById('carousel-container');
+const cartOverlay = document.getElementById('cart-overlay');
+const cartTableBody = document.getElementById('cart-table-body');
+const cartTotalEl = document.getElementById('cart-total');
+const cartCountEl = document.getElementById('cart-count');
+const closeCartBtn = document.getElementById('close-cart-btn');
+const checkoutBtn = document.getElementById('checkout-btn');
+const clearCartBtn = document.getElementById('clear-cart-btn');
+const cartEl = document.getElementById('cart');
 
-// КОРЗИНА
-
+// ПЕРЕМЕННЫЕ ДЛЯ КОРЗИНЫ
 let cartCount = 0;
 let selectedDishes = [];
 
-// анимируем блюдо падающее в корзину
+// АНИМАЦИЯ "ТОВАР ПАДАЕТ В КОРЗИНУ"
 function animateToCart(img, startRect) {
   const flyingImg = img.cloneNode(true);
   flyingImg.className = 'flying-img';
@@ -220,86 +220,7 @@ function animateToCart(img, startRect) {
   });
 }
 
-
-// МАССИВ БЛЮД
-
-const dishes = [
-  { 
-    name: 'Салат из свежих томатов', 
-    price: 700, 
-    img: 'img/menu-img/11zon_cropped (5).png' 
-  },
-  { 
-    name: 'Каре из ягнятины', 
-    price: 1000, 
-    img: 'img/menu-img/11zon_cropped (2).png' 
-  },
-  { 
-    name: 'Стейк из тунца', 
-    price: 1400, 
-    img: 'img/menu-img/11zon_cropped (3).png'
-  },
-  { 
-    name: 'Морской гребешок', 
-    price: 1000, 
-    img: 'img/menu-img/11zon_cropped (4).png' 
-  },
-  { 
-    name: 'Королевский микс', 
-    price: 1300, 
-    img: 'img/menu-img/11zon_cropped (1).png'  
-  },
-  { 
-    name: 'Лимонно-малиновый тарт', 
-    price: 1000, 
-    img: 'img/menu-img/11zon_cropped (6).png' 
-  },
-  { 
-    name: 'Стейк из лосося', 
-    price: 1300, 
-    img: 'img/menu-img/11zon_cropped (7).png' 
-  },
-  { 
-    name: 'Жареная утиная грудка', 
-    price: 1500, 
-    img: 'img/menu-img/11zon_cropped (8).png' 
-  },
-  { 
-    name: 'Креветка с камамбером', 
-    price: 1220, 
-    img: 'img/menu-img/11zon_cropped (9).png' 
-  },
-  { 
-    name: 'Салат с лобстером', 
-    price: 1240, 
-    img: 'img/menu-img/11zon_cropped (11).png' 
-  },
-  { 
-    name: 'Шоколадный милфей', 
-    price: 1050, 
-    img: 'img/menu-img/11zon_cropped (12).png' 
-  },
-  { 
-    name: 'Панакота', 
-    price: 1000, 
-    img: 'img/menu-img/11zon_cropped (13).png' 
-  }
-];
-
-
-const carouselTrack = document.getElementById('carousel-track');
-const carouselContainer = document.getElementById('carousel-container');
-const cartOverlay = document.getElementById('cart-overlay');
-const cartTableBody = document.getElementById('cart-table-body');
-const cartTotalEl = document.getElementById('cart-total');
-const cartCountEl = document.getElementById('cart-count');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const checkoutBtn = document.getElementById('checkout-btn');
-const clearCartBtn = document.getElementById('clear-cart-btn');
-const cartEl = document.getElementById('cart');
-
-
-// ф-я для создания карточек блюд
+// ФУНКЦИЯ СОЗДАНИЯ КАРТОЧКИ
 function createCard(dish) {
   const card = document.createElement('div');
   card.className = 'card';
@@ -332,7 +253,7 @@ function createCard(dish) {
     animateToCart(imgEl, rect);
   });
 
-  // При клике на карточку – меняем большое блюдо
+  // При клике на карточку меняем изображение в hero
   card.addEventListener('click', () => {
     const heroImg = document.getElementById('hero-img');
     heroImg.src = dish.img;
@@ -348,15 +269,13 @@ infiniteDishes.forEach(dish => {
   carouselTrack.appendChild(card);
 });
 
-// прокрутка колесиком мыши
+// Прокрутка карусели колесиком мыши
 carouselContainer.addEventListener("wheel", (event) => {
   event.preventDefault();
   carouselContainer.scrollLeft += event.deltaY * 2;
 });
 
-
 // МОДАЛЬНОЕ ОКНО КОРЗИНЫ
-
 function showCartOverlay() {
   renderCart();
   cartOverlay.classList.remove('hidden');
@@ -375,7 +294,6 @@ function hideCartOverlay() {
 cartEl.addEventListener('click', showCartOverlay);
 closeCartBtn.addEventListener('click', hideCartOverlay);
 
-// КОРЗИНА
 function renderCart() {
   cartTableBody.innerHTML = '';
   let total = 0;
@@ -411,6 +329,7 @@ function renderCart() {
   cartTotalEl.textContent = 'Итоговая сумма: ' + total + ' руб.';
 }
 
+// КНОПКИ "ЗАКАЗАТЬ" И "ОЧИСТИТЬ КОРЗИНУ"
 checkoutBtn.addEventListener('click', () => {
   alert('Спасибо за заказ!');
   selectedDishes = [];
@@ -426,37 +345,35 @@ clearCartBtn.addEventListener('click', () => {
   renderCart();
 });
 
-
-// ЗВЕЗДОЧКИ
-
+// СОЗДАЕМ 15 ЗВЁЗДОЧЕК
 function isInsideRect(x, y, rect) {
   return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
 
-function createRandomStars(count) {
+function createStarsInZones(count) {
+  const headerRect = document.querySelector('header').getBoundingClientRect();
   const heroRect = document.getElementById('hero').getBoundingClientRect();
   const carouselRect = document.getElementById('carousel-section').getBoundingClientRect();
+  const zones = [headerRect, heroRect, carouselRect];
 
   for (let i = 0; i < count; i++) {
     const star = document.createElement('img');
     star.src = 'img/menu-star/60-01.svg';
-    star.classList.add('star');
+    star.className = 'star';
 
-    let randomX, randomY, valid = false;
-    while (!valid) {
-      randomX = Math.random() * window.innerWidth;
-      randomY = Math.random() * window.innerHeight;
-      if (!isInsideRect(randomX, randomY, heroRect) &&
-          !isInsideRect(randomX, randomY, carouselRect)) {
-        valid = true;
-      }
-    }
-    star.style.left = randomX + 'px';
-    star.style.top = randomY + 'px';
+    const zone = zones[Math.floor(Math.random() * zones.length)];
+
+    // Вычисляем случайные места 
+    const x = zone.left + Math.random() * zone.width;
+    const y = zone.top + Math.random() * zone.height;
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+
+    // Случайный размер
     const size = 30 + Math.random() * 40;
     star.style.width = size + 'px';
+
     document.body.appendChild(star);
   }
 }
-createRandomStars(20);
-  
+createStarsInZones(15);
