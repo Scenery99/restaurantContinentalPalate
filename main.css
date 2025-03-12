@@ -1,55 +1,83 @@
-@media (max-width: 1023px) {
+/* */
+@media (max-width: 1200px) {
     .hero-dish {
-        width: 400px;
+      width: 350px;
     }
     .hero-simple {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  /* */
+  @media (max-width: 800px) {
     .navbar {
-        flex-wrap: wrap;
+      flex-wrap: wrap;
     }
     .nav-links {
-        display: none;
+      display: none;
     }
     .burger {
-        display: flex;
+      display: flex;
     }
     .nav-links.mobile {
-        display: flex;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: rgba(0,0,0,0.8);
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 15px;
+      border-radius: 8px;
     }
     .hero {
-        flex-direction: column;
-    }
-    .hero-dish {
-        width: 300px;
-        margin-top: 20px;
+      flex-direction: column;
+      text-align: center;
     }
     .hero-simple {
-        font-size: 0.6rem;
+      max-width: 80%;
+      margin: 20px auto;
+      font-size: 0.9rem;
+    }
+    .hero-dish {
+      width: 300px;
+      margin-top: 10px;
     }
     .card {
-        width: 180px;
+      width: 180px;
     }
-    .star {
-        width: 45px;
+    .card h3 {
+      font-size: 0.8rem;
     }
-}
-
-@media (max-width: 480px) {
+    .card p {
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* */
+  @media (max-width: 400px) {
+    .navbar{
+      flex-wrap: wrap;
+    }
     .hero-dish {
-      width: 100px;
+      width: 150px;
     }
     .hero-simple {
-      font-size: 0.3rem;
+      font-size: 0.7rem;
     }
     .card {
       width: 150px;
+      height: 180px;
     }
-
-    .star {
-        width: 35px;
+    .card img {
+        width: 110px;
+        height: auto;
     }
-}
+    .card h3 {
+      font-size: 0.7rem;
+      margin-top: 0;
+    }
+    .card p {
+      font-size: 0.6rem;
+    }
+  }
