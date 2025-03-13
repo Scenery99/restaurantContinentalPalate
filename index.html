@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Continental Palate</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./style.css">  
+  <link rel="stylesheet" href="./main.css"> 
 </head>
 <body>
 
-  <!-- Контейнер для шапки, создаётся через JS -->
+  <!-- Контейнер для шапки -->
   <div id="header-container"></div>
-
-  <!-- Контейнер для секции HERO -->
+  
+  <!-- Контейнер для hero-секции -->
   <div id="hero-container"></div>
-
-  <!-- Секция для карусели -->
+  
+  <!-- Первая карусель (блюда) -->
   <section class="carousel-section" id="carousel-section">
-    <div class="carousel-container" id="carousel-container">
-      <div class="carousel-track" id="carousel-track"></div>
+    <h2>Основное меню</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-container" id="carousel-container">
+        <div class="carousel-track" id="carousel-track"></div>
+      </div>
+      <button class="carousel-btn left" id="btn-dish-left">&#10094;</button>
+      <button class="carousel-btn right" id="btn-dish-right">&#10095;</button>
     </div>
   </section>
-
+  
+  <!-- Вторая карусель (напитки) -->
+  <section class="carousel-section" id="drink-carousel-section">
+    <h2>Напитки</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-container" id="drink-carousel-container">
+        <div class="carousel-track" id="drink-carousel-track"></div>
+      </div>
+      <button class="carousel-btn left" id="btn-drink-left">&#10094;</button>
+      <button class="carousel-btn right" id="btn-drink-right">&#10095;</button>
+    </div>
+  </section>
+  
   <script src="./script.js"></script>
 </body>
 </html>

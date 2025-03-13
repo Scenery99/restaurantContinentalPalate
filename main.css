@@ -6,7 +6,6 @@
     font-size: 1rem;
   }
 }
-
 @media (max-width: 800px) {
   .navbar {
     flex-wrap: wrap;
@@ -15,7 +14,10 @@
     display: none;
   }
   .burger {
-    display: flex;
+    display: flex;    
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
   }
   .nav-links.mobile {
     display: flex;
@@ -27,6 +29,7 @@
     right: 20px;
     padding: 15px;
     border-radius: 8px;
+    z-index: 1000;
   }
   .hero {
     flex-direction: column;
@@ -41,17 +44,29 @@
     width: 300px;
     margin-top: 10px;
   }
+  .carousel-container {
+    width: 95%;
+    height: 300px;
+  }
+  .carousel-btn {
+    width: 28px;
+    height: 41px;
+  }
   .card {
-    width: 180px;
+    width: 170px;
+    height: 240px;
+  }
+  .card img {
+    width: 130px;
   }
   .card h3 {
     font-size: 0.8rem;
+    margin-top: 20px;
   }
   .card p {
     font-size: 0.7rem;
   }
 }
-
 @media (max-width: 400px) {
   .hero-dish {
     width: 150px;
@@ -64,13 +79,42 @@
     height: 180px;
   }
   .card img {
-    width: 120px;
+    width: 90px;
   }
   .card h3 {
-    font-size: 0.7rem;
-    margin-top: 0;
+    font-size: 0.6rem;
+    margin: 0;
   }
   .card p {
     font-size: 0.6rem;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(247,221,173,0.1);
+    border: none;
+    color: beige;
+    width: 26px;
+    height: 39px;
+    font-size: 0.8rem;
+    padding: 10px;
+    cursor: pointer;
+    /* border-radius: 50%; */
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(248,216,157,0.945);
+  }
+  
+  .carousel-btn.left {
+    left: 10px;
+  }
+  
+  .carousel-btn.right {
+    right: 10px;
+  }
+  
+  .carousel-btn:hover {
+    background-color: rgba(247,221,173,0.6);
   }
 }
