@@ -457,7 +457,7 @@ header {
   transition: transform 1.5s linear, opacity 1s linear;
 }
 
-/* ЗВЁЗДОЧКИ */
+/* ЗВЁЗДОЧКИ*/
 .star {
   position: absolute;
   pointer-events: none;

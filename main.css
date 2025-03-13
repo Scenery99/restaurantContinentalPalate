@@ -100,7 +100,7 @@
     font-size: 0.8rem;
     padding: 10px;
     cursor: pointer;
-    /* border-radius: 50%; */
+    /* border-radius: 50%;*/
     z-index: 10;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 10px rgba(248,216,157,0.945);

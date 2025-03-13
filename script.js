@@ -369,7 +369,7 @@ function hideCartOverlay() {
 cartEl.addEventListener('click', showCartOverlay);
 closeCartBtn.addEventListener('click', hideCartOverlay);
 
-/*  ОБНОВЛЕНИЕ КОРЗИНЫ  */
+/*  ОБНОВЛЕНИЕ КОРЗИНЫ */
 function renderCart() {
   cartTableBody.innerHTML = '';
   let total = 0;
