@@ -21,7 +21,7 @@ height: 100%;
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: url('./img/menu-background/Image.png') no-repeat center center fixed;
+  background: url('./img/menu-background/Image.png') no-repeat center center fixed; /*прописать путь к изоьражению*/
   background-size: cover;
   color: #333;
   overflow-x: hidden;
@@ -109,7 +109,7 @@ header {
   font-size: 0.9rem;
 }
 
-/* Бургер-меню (показывается на маленьких экранах) */
+/* Бургер-меню */
 .burger {
   display: none;
 }

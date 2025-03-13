@@ -1,4 +1,4 @@
-/* ФУНКЦИИ СОЗДАНИЯ ЭЛЕМЕНТОВ */
+/* ФУНКЦИИ ДЛЯ СОЗДАНИЯ ЭЛЕМЕНТОВ */
 function createHeader() {
   const header = document.createElement('header');
   header.className = 'header';
@@ -15,7 +15,7 @@ function createHeader() {
   const navLinks = document.createElement('ul');
   navLinks.className = 'nav-links';
   const links = [
-    { text: 'На главную', href: '#', active: false },
+    { text: 'На главную', href: '#', active: false }, /*прописать путь, навигация*/
     { text: 'О нас', href: '#', active: false },
     { text: 'Меню', href: '#', active: true }
   ];
@@ -43,7 +43,7 @@ function createHeader() {
   cart.appendChild(cartIcon);
   cart.appendChild(cartCount);
   
-  // Бургер-меню (для маленьких экранов)
+  // Бургер-меню 
   const burger = document.createElement('div');
   burger.className = 'burger';
   for (let i = 0; i < 3; i++) {
@@ -80,7 +80,7 @@ function createHero() {
   const heroDish = document.createElement('img');
   heroDish.className = 'hero-dish';
   heroDish.id = 'hero-img';
-  heroDish.src = 'img/menu-img/11zon_cropped (5).png';
+  heroDish.src = 'img/menu-img/11zon_cropped (5).png'; /*прописать путь к изоьражению*/
   heroDish.alt = 'Big Dish';
   
   hero.appendChild(heroSimple);
@@ -165,27 +165,27 @@ createCartOverlay();
 
 /* МАССИВЫ БЛЮД И НАПИТКОВ */
 const dishes = [
-  { name: 'Салат из томатов', price: 700, img: 'img/menu-img/11zon_cropped (5).png' },
-  { name: 'Каре из ягнятины', price: 1000, img: 'img/menu-img/11zon_cropped (2).png' },
-  { name: 'Королевский микс', price: 1300, img: 'img/menu-img/11zon_cropped (1).png' },
-  { name: 'Морской гребешок', price: 1000, img: 'img/menu-img/11zon_cropped (4).png' },
-  { name: 'Стейк из тунца', price: 1400, img: 'img/menu-img/11zon_cropped (3).png' },
-  { name: 'Малиновый тарт', price: 1000, img: 'img/menu-img/11zon_cropped (6).png' },
-  { name: 'Стейк из лосося', price: 1300, img: 'img/menu-img/11zon_cropped (7).png' },
-  { name: 'Утиная грудка', price: 1500, img: 'img/menu-img/11zon_cropped (8).png' },
-  { name: 'Креветка с бри', price: 1220, img: 'img/menu-img/11zon_cropped (9).png' },
-  { name: 'Салат с лобстером', price: 1240, img: 'img/menu-img/11zon_cropped (11).png' },
-  { name: 'Шоколадный милфей', price: 1050, img: 'img/menu-img/11zon_cropped (12).png' },
-  { name: 'Панакота', price: 1000, img: 'img/menu-img/11zon_cropped (13).png' }
+  { name: 'Салат из томатов', price: 700, img: 'img/menu-img/11zon_cropped (5).png' }, /*прописать путь к изоьражению*/
+  { name: 'Каре из ягнятины', price: 1000, img: 'img/menu-img/11zon_cropped (2).png' },/*прописать путь к изоьражению*/
+  { name: 'Королевский микс', price: 1300, img: 'img/menu-img/11zon_cropped (1).png' },/*прописать путь к изоьражению*/
+  { name: 'Морской гребешок', price: 1000, img: 'img/menu-img/11zon_cropped (4).png' },/*прописать путь к изоьражению*/
+  { name: 'Стейк из тунца', price: 1400, img: 'img/menu-img/11zon_cropped (3).png' },/*прописать путь к изоьражению*/
+  { name: 'Малиновый тарт', price: 1000, img: 'img/menu-img/11zon_cropped (6).png' },/*прописать путь к изоьражению*/
+  { name: 'Стейк из лосося', price: 1300, img: 'img/menu-img/11zon_cropped (7).png' },/*прописать путь к изоьражению*/
+  { name: 'Утиная грудка', price: 1500, img: 'img/menu-img/11zon_cropped (8).png' },/*прописать путь к изоьражению*/
+  { name: 'Креветка с бри', price: 1220, img: 'img/menu-img/11zon_cropped (9).png' },/*прописать путь к изоьражению*/
+  { name: 'Салат с лобстером', price: 1240, img: 'img/menu-img/11zon_cropped (11).png' },/*прописать путь к изоьражению*/
+  { name: 'Шоколадный милфей', price: 1050, img: 'img/menu-img/11zon_cropped (12).png' },/*прописать путь к изоьражению*/
+  { name: 'Панакота', price: 1000, img: 'img/menu-img/11zon_cropped (13).png' }/*прописать путь к изоьражению*/
 ];
 
 const drinks = [
-  { name: 'Эспрессо-грей', price: 300, img: 'img/drinks img/11zon_cropped (14).png' },
-  { name: 'Груша-drink', price: 350, img: 'img/drinks img/11zon_cropped (19).png' },
-  { name: 'Зимняя вишня', price: 400, img: 'img/drinks img/11zon_cropped (16).png' },
-  { name: 'Корица-ice', price: 380, img: 'img/drinks img/11zon_cropped (17).png' },
-  { name: 'Ice-Американо', price: 350, img: 'img/drinks img/11zon_cropped (18).png' },
-  { name: 'Зимний цитрус', price: 350, img: 'img/drinks img/11zon_cropped (15).png' }
+  { name: 'Эспрессо-грей', price: 300, img: 'img/drinks img/11zon_cropped (14).png' },/*прописать путь к изоьражению*/
+  { name: 'Груша-drink', price: 350, img: 'img/drinks img/11zon_cropped (19).png' },/*прописать путь к изоьражению*/
+  { name: 'Зимняя вишня', price: 400, img: 'img/drinks img/11zon_cropped (16).png' },/*прописать путь к изоьражению*/
+  { name: 'Корица-ice', price: 380, img: 'img/drinks img/11zon_cropped (17).png' },/*прописать путь к изоьражению*/
+  { name: 'Ice-Американо', price: 350, img: 'img/drinks img/11zon_cropped (18).png' },/*прописать путь к изоьражению*/
+  { name: 'Зимний цитрус', price: 350, img: 'img/drinks img/11zon_cropped (15).png' }/*прописать путь к изоьражению*/
 ];
 
 /* ССЫЛКИ НА ЭЛЕМЕНТЫ */
@@ -209,11 +209,10 @@ const btnDishRight = document.getElementById('btn-dish-right');
 const btnDrinkLeft = document.getElementById('btn-drink-left');
 const btnDrinkRight = document.getElementById('btn-drink-right');
 
-/* ПЕРЕМЕННЫЕ ДЛЯ КОРЗИНЫ */
 let cartCount = 0;
 let selectedDishes = [];
 
-/*  АНИМАЦИЯ "ПАДЕНИЯ" */
+/*  ФУНКЦИЯ ДЛЯ АНИМАЦИИ "ПАДЕНИЯ" */
 function animateToCart(img, startRect) {
   const flyingImg = img.cloneNode(true);
   flyingImg.className = 'flying-img';
@@ -277,7 +276,7 @@ function createCard(dish) {
   return card;
 }
 
-/* ФУНКЦИЯ СОЗДАНИЯ КАРТОЧКИ ДЛЯ НАПИТКОВ */
+/* ФУНКЦИЯ СОЗДАНИЯ КАРТОЧКИ ДЛЯ КАРУСЕЛИ НАПИТКОВ */
 function createDrinkCard(drink) {
   const card = document.createElement('div');
   card.className = 'card';
@@ -413,7 +412,7 @@ clearCartBtn.addEventListener('click', () => {
   renderCart();
 });
 
-/* ГЕНЕРАЦИЯ ЗВЁЗД */
+/* ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ ЗВЁЗД */
 function isInsideRect(x, y, rect) {
   return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
@@ -427,7 +426,7 @@ function createStarsInZones(count) {
   const zones = [headerRect, heroRect, menuRect, drinkRect];
   for (let i = 0; i < count; i++) {
     const star = document.createElement('img');
-    star.src = 'img/menu-star/60-01.svg';
+    star.src = 'img/menu-star/60-01.svg'; /*прописать путь к изображению*/
     star.className = 'star';
     // Выбираем случайную зону
     const zone = zones[Math.floor(Math.random() * zones.length)];
@@ -438,7 +437,7 @@ function createStarsInZones(count) {
     star.style.top = `${y}px`;
     const size = 30 + Math.random() * 40;
     star.style.width = `${size}px`;
-    // Звёзды будут ниже основных блоков (z-index: 1)
+    // Звёзды будут ниже основных блоков
     star.style.zIndex = '1';
     document.body.appendChild(star);
   }
